@@ -57,15 +57,8 @@
 
   <section id="download">
     <h2>Download</h2>
-    <a class="btn" id="dl-win" href="https://github.com/oakbarn/Skynet_Brewery/releases/latest">Download for Windows</a>
-    <p class="small" id="dl-ver">Always the newest version.</p>
-    <p class="small">Windows may say "Windows protected your PC". Click <b>More info</b>, then <b>Run anyway</b>.</p>
-    <ul class="more">
-      <li><a id="dl-zip" href="https://github.com/oakbarn/Skynet_Brewery/releases/latest">Mac, Linux, Raspberry Pi or by hand</a> (zip file)</li>
-      <li><a id="dl-media" href="https://github.com/oakbarn/Skynet_Brewery/releases/latest">Pictures and sounds</a> (run after the Setup; it only adds)</li>
-      <li><a id="dl-readme" href="https://github.com/oakbarn/Skynet_Brewery/releases/latest">Read Me</a></li>
-      <li><a href="https://github.com/oakbarn/Skynet_Brewery/releases/latest">All downloads</a></li>
-    </ul>
+    <p class="btn" style="cursor:default">Coming soon</p>
+    <p class="small">Skynet Brewer is still being tested. Check back soon, or email <a href="mailto:info@oakbarnbrewery.com">info@oakbarnbrewery.com</a> to hear when it is ready.</p>
   </section>
 
   <section id="contact">
@@ -82,22 +75,6 @@
 </div>
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-  // Point each link straight at the newest file (falls back to the downloads page if this fails).
-  fetch('https://api.github.com/repos/oakbarn/Skynet_Brewery/releases/latest')
-    .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (rel) {
-      if (!rel || !rel.assets) return;
-      var pick = function (re) { return rel.assets.find(function (a) { return re.test(a.name); }); };
-      var set = function (id, re) { var a = pick(re); if (a) document.getElementById(id).href = a.browser_download_url; };
-      set('dl-win', /^Skynet_Brewer_Setup_.*\.exe$/);
-      set('dl-zip', /^Skynet_BrewPanel_.*\.zip$/);
-      set('dl-media', /^Skynet_Media_Setup_.*\.exe$/);
-      set('dl-readme', /^ReadMe\.txt$/);
-      if (rel.published_at) {
-        document.getElementById('dl-ver').textContent = 'Newest version, made ' + new Date(rel.published_at).toLocaleDateString() + '.';
-      }
-    })
-    .catch(function () {});
 </script>
 </body>
 </html>
