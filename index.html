@@ -38,6 +38,7 @@
   .beers { columns:2; padding-left:20px; margin:8px 0 0; }
   @media (max-width:520px) { .beers { columns:1; } }
   footer { text-align:center; color:var(--muted); font-size:.9rem; padding:24px 0 40px; }
+  footer .biz { margin-top:6px; }
 </style>
 </head>
 <body>
@@ -98,7 +99,10 @@
     <p><strong>&#9888; Electricity can kill.</strong> OakBarn Brewery and Skynet are not electricians. Consult a Licensed Electrician before wiring anything.</p>
   </section>
 
-  <footer>&copy; <span id="yr">2026</span> OakBarn Brewery</footer>
+  <footer>
+    <div>&copy; <span id="yr">2026</span> <strong>OAK BARN ENTERPRISES, INC.</strong> &middot; OakBarn Brewery</div>
+    <div class="biz">Argyle, TX &middot; <a href="mailto:oakbarn@oakbarnbrewery.com">oakbarn@oakbarnbrewery.com</a></div>
+  </footer>
 </div>
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
